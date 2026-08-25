@@ -1,0 +1,18 @@
+GERAÇÕES POR DIA
+================
+Toda arte nova entra em:
+
+  Gerações IP Digital/por-dia/AAAA-MM-DD/
+
+Exemplo de hoje: por-dia/2026-08-25/
+
+Dentro da pasta do dia:
+  index.html     página para abrir no celular
+  ceo/           carrossel do fundador (se houver)
+  escolas/       artes NOW PARTICIPATING (se houver)
+  restaurantes/  quando um restaurante fechar
+
+Não soltar PNG solto na raiz de Gerações IP Digital.
+Não misturar o lote de ontem com o de hoje.
+
+A página pública aponta para esta pasta.
