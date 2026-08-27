@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<style>
+/* PTA Restaurant Week 2026 — OpenDesign tokens
+ * Machine-readable form of DESIGN.md. Paste this :root into every artifact.
+ * --accent is RED (the ask). Gold is a C-extension (--gold), used once per surface.
+ */
+
+:root {
+  /* ─── Surface ───────────────────────────────────────────────────── */
+  --bg: #FBF8F2;                 /* cream — default page, never white */
+  --surface: #ffffff;            /* logo card / small patch only */
+  --surface-warm: #FBF8F2;
+  --cream: #FBF8F2;
+  --navy: #33305E;
+  --navy-dark: #242143;
+
+  /* ─── Foreground ────────────────────────────────────────────────── */
+  --fg: #241F33;                 /* ink */
+  --fg-2: #33305E;               /* navy headlines on cream */
+  --muted: #5B5670;
+  --meta: #5B5670;
+
+  /* ─── Border ────────────────────────────────────────────────────── */
+  --border: #E7E1D6;
+  --border-soft: #EFEAE1;
+
+  /* ─── Accent = Red (primary CTA, prices, 20%, $900) ─────────────── */
+  --accent: #A32638;
+  --accent-on: #ffffff;
+  --accent-hover: #7E1C2A;
+  --accent-active: #6A1623;
+  --red: #A32638;
+  --red-dark: #7E1C2A;
+
+  /* ─── Gold = single highlight, never a fill ─────────────────────── */
+  --gold: #F0B429;
+
+  /* ─── Semantic ──────────────────────────────────────────────────── */
+  --success: #2F6B4F;
+  --warn: #F0B429;
+  --danger: #7E1C2A;
+
+  /* ─── Typography ────────────────────────────────────────────────── */
+  --font-display: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-body: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 48px;
+  --text-4xl: 64px;
+
+  --leading-body: 1.35;
+  --leading-tight: 0.94;
+  --tracking-display: 0.02em;
+  --tracking-kicker: 0.18em;
+
+  /* ─── Spacing ───────────────────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-20: 80px;
+
+  --section-y-desktop: 80px;
+  --section-y-tablet: 48px;
+  --section-y-phone: 32px;
+
+  --ig-size: 1080px;
+  --ig-inset: 48px;
+
+  /* ─── Radius ────────────────────────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+
+  /* ─── Elevation ─────────────────────────────────────────────────── */
+  --elev-flat: none;
+  --elev-ring: 0 0 0 1px var(--border);
+  --elev-raised: none; /* brand is flat — no drop shadows on the mark */
+
+  --focus-ring: 0 0 0 3px color-mix(in oklab, var(--gold), transparent 70%);
+
+  /* ─── Motion ────────────────────────────────────────────────────── */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ─── Layout ────────────────────────────────────────────────────── */
+  --container-max: 1120px;
+  --container-gutter-desktop: 24px;
+  --container-gutter-tablet: 16px;
+  --container-gutter-phone: 12px;
+}
+
+/* Instagram 1080 square — PTA Restaurant Week 2026
+ * Requires tokens.css :root in the same document. */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: var(--ig-size);
+  height: var(--ig-size);
+  overflow: hidden;
+  background: var(--navy-dark);
+  font-family: var(--font-display);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  width: var(--ig-size);
+  height: var(--ig-size);
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 38%;
+  background-repeat: no-repeat;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(36, 33, 67, 0.97) 0%,
+    rgba(36, 33, 67, 0.78) 28%,
+    rgba(36, 33, 67, 0.38) 52%,
+    rgba(36, 33, 67, 0.10) 72%,
+    rgba(36, 33, 67, 0.04) 100%
+  );
+}
+
+.top {
+  position: absolute;
+  top: 40px;
+  left: 44px;
+  right: 44px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logo-card {
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  width: 148px;
+  padding: 12px 14px 10px;
+}
+.logo-card img { width: 100%; height: auto; display: block; }
+
+.date {
+  background: rgba(36, 33, 67, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.content {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  bottom: 48px;
+  z-index: 3;
+}
+
+.eyebrow {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.92;
+}
+
+.gold-rule {
+  width: 56px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 0 0 16px;
+}
+
+h1 {
+  font-size: 64px;
+  line-height: var(--leading-tight);
+  font-weight: 800;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.body {
+  font-size: 24px;
+  line-height: 1.32;
+  font-weight: 500;
+  max-width: 940px;
+  margin: 0 0 26px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.stat {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-on);
+  border-radius: var(--radius-pill);
+  padding: 16px 26px;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.url {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+}
+
+.name, .sample {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  margin: 0 10px 14px 0;
+}
+
+.name {
+  background: rgba(251, 248, 242, 0.95);
+  color: var(--navy);
+}
+
+.sample {
+  background: var(--navy);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.stats {
+  display: flex;
+  gap: 0;
+  margin: 0 0 22px;
+}
+.stats .cell {
+  padding: 0 22px 0 0;
+  margin-right: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
+}
+.stats .cell:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+.stats .n {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+.stats .l {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  align-items: center;
+}
+.dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.32);
+  display: block;
+}
+.dots i.on {
+  background: var(--gold);
+  width: 22px;
+  border-radius: 8px;
+}
+.swipe {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-left: 8px;
+}
+
+.giant {
+  font-size: 112px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  margin: 0 0 4px;
+}
+
+/* ── Graphic (cream) ─────────────────────────────────────────────── */
+.graphic {
+  background: var(--cream);
+  color: var(--fg);
+}
+.graphic .navy-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: var(--navy-dark);
+}
+.gwrap {
+  position: absolute;
+  inset: 0;
+  padding: 40px 48px 48px;
+  display: flex;
+  flex-direction: column;
+}
+.graphic .logo-card { position: static; width: 128px; }
+.graphic .date {
+  position: static;
+  background: var(--navy-dark);
+  border: 0;
+  color: #fff;
+}
+.kicker {
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-top: 36px;
+}
+.graphic .gold-rule { margin: 12px 0 8px; }
+.num {
+  font-size: 120px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 0.9;
+  margin: 4px 0 8px;
+  letter-spacing: -0.03em;
+}
+.graphic h1 {
+  font-size: 48px;
+  color: var(--navy);
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+.graphic .copy {
+  font-size: 26px;
+  color: var(--navy);
+  opacity: 0.88;
+  line-height: 1.35;
+  max-width: 920px;
+  flex: 1;
+}
+.bot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto -48px -48px;
+  padding: 22px 48px;
+  background: var(--navy-dark);
+}
+.graphic .url { color: #fff; font-size: 18px; }
+.graphic .dots i { background: rgba(255, 255, 255, 0.28); }
+.graphic .dots i.on { background: var(--gold); }
+
+
+.graphic .stat { color: var(--accent); }
+.graphic h1 { font-size: 48px; }
+.graphic .copy { font-size: 26px; }
+.graphic .stats { margin: 8px 0 18px; }
+.graphic .stats .n { color: var(--accent); font-size: 42px; }
+.graphic .stats .l { color: var(--muted); }
+.graphic .stats .cell { border-right-color: var(--border); }
+.stack { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
+.stack .block {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+}
+.stack .lab {
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: .14em;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.stack p { font-size: 22px; line-height: 1.32; color: var(--navy); font-weight: 500; margin: 0; }
+.list { margin: 4px 0 0; padding: 0; list-style: none; }
+.list li {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 14px;
+  align-items: start;
+  font-size: 24px;
+  line-height: 1.32;
+  color: var(--navy);
+  font-weight: 500;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+.list li::before {
+  content: "";
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 9px;
+}
+
+</style></head><body>
+<div class="card">
+  <div class="bg" style="background-image:url('/Users/icarosousa/IP DIGITAL/PROJETO PTA -/Gerações IP Digital/brand-system/assets/photos/dining-window.jpg');"></div>
+  <div class="scrim"></div>
+  <div class="top">
+    <div class="logo-card"><img src="/Users/icarosousa/IP DIGITAL/PROJETO PTA -/Gerações IP Digital/brand-system/assets/logos/logo-transparent.png" alt=""></div>
+    <div class="date">NOV 2–15, 2026</div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">WHO WE ARE</div>
+    <div class="gold-rule"></div>
+    <h1 style="font-size:64px">Restaurants.<br>Families.<br>PTAs.</h1>
+    
+    <p class="body">A two-week dining program that connects local restaurants, families, and school PTAs.</p>
+    
+    <div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><span class="swipe">SWIPE</span></div>
+  </div>
+</div>
+</body></html>

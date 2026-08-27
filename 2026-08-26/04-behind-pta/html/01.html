@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--cream:#FBF8F2;--navy:#33305E;--navy-dark:#242143;--accent:#A32638;--gold:#F0B429}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1080px;overflow:hidden;font-family:"Avenir Next",Avenir,"Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.card{width:1080px;height:1080px;position:relative;background:#000}
+.bg{position:absolute;inset:0;background:url("/Users/icarosousa/IP DIGITAL/PROJETO PTA -/Gerações IP Digital/por-dia/2026-08-26/04-behind-pta/ceo.jpeg") center 28%/cover no-repeat}
+.scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(36,33,67,.97) 0%,rgba(36,33,67,.82) 32%,rgba(36,33,67,.28) 58%,rgba(36,33,67,.06) 100%)}
+.top{position:absolute;top:40px;left:44px;right:44px;z-index:3;display:flex;justify-content:space-between;align-items:flex-start}
+.logo-card{background:var(--cream);border-radius:18px;width:148px;padding:12px 14px 10px}
+.logo-card img{width:100%;height:auto;display:block}
+.date{background:rgba(36,33,67,.55);border:1px solid rgba(255,255,255,.22);border-radius:9999px;padding:10px 18px;font-size:16px;font-weight:700;letter-spacing:.08em;color:#fff}
+.content{position:absolute;left:48px;right:48px;bottom:56px;z-index:3}
+.eyebrow{color:#fff;font-size:15px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;opacity:.92}
+.gold-rule{width:56px;height:4px;background:var(--gold);border-radius:2px;margin:0 0 16px}
+h1{font-size:56px;line-height:.96;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin:0 0 18px}
+.body{font-size:24px;line-height:1.32;font-weight:500;color:rgba(255,255,255,.92);max-width:920px}
+.dots{position:absolute;bottom:22px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:4}
+.dots i{width:8px;height:8px;border-radius:8px;background:rgba(255,255,255,.35);display:block}
+.dots i.on{width:22px;background:var(--gold)}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg"></div>
+  <div class="scrim"></div>
+  <div class="top">
+    <div class="logo-card"><img src="/Users/icarosousa/IP DIGITAL/PROJETO PTA -/Gerações IP Digital/brand-system/assets/logos/logo-transparent.png" alt=""></div>
+    <div class="date">NOV 2–15, 2026</div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">The founder</div>
+    <div class="gold-rule"></div>
+    <h1>Built by someone<br>who’s done this before.</h1>
+    <p class="body">Emerson Silveira moved to New York in 1992 — the year NYC Restaurant Week was created — then launched Restaurant Week Brasil in 2005.</p>
+  </div>
+  <div class="dots"><i class="on"></i><i></i><i></i></div>
+</div>
+</body>
+</html>
