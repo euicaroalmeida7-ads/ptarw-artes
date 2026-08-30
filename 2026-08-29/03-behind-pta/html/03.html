@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--cream:#FBF8F2;--navy:#33305E;--navy-dark:#242143;--accent:#A32638;--gold:#F0B429;--muted:#5B5670;--line:#E7E1D6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1350px;overflow:hidden;font-family:"Avenir Next",Avenir,"Segoe UI",Helvetica,Arial,sans-serif;background:var(--cream);-webkit-font-smoothing:antialiased}
+.card{width:1080px;height:1350px;position:relative;background:var(--cream);border-top:8px solid var(--navy-dark)}
+.top{position:absolute;top:36px;left:44px;right:44px;display:flex;justify-content:space-between;align-items:flex-start}
+.logo-card{background:#fff;border-radius:18px;width:148px;padding:12px 14px 10px;border:1px solid var(--line)}
+.logo-card img{width:100%;height:auto;display:block}
+.date{background:var(--navy-dark);border-radius:9999px;padding:10px 18px;font-size:16px;font-weight:700;letter-spacing:.08em;color:#fff}
+.quote-wrap{position:absolute;left:72px;right:72px;top:320px}
+.bar{position:absolute;left:48px;top:320px;width:8px;height:520px;background:var(--gold);border-radius:4px}
+q{display:block;font-size:34px;line-height:1.28;font-weight:600;color:var(--navy);font-style:normal}
+q::before,q::after{content:""}
+.who{margin-top:28px;font-size:18px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.foot{position:absolute;left:72px;right:72px;bottom:88px;font-size:22px;line-height:1.35;font-weight:500;color:var(--muted)}
+.dots{position:absolute;bottom:22px;left:0;right:0;display:flex;justify-content:center;gap:8px}
+.dots i{width:8px;height:8px;border-radius:8px;background:var(--line);display:block}
+.dots i.on{width:22px;background:var(--accent)}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top">
+    <div class="logo-card"><img src="/Users/icarosousa/IP DIGITAL/PROJETO PTA -/Gerações IP Digital/brand-system/assets/logos/logo-transparent.png" alt=""></div>
+    <div class="date">NOV 2–15, 2026</div>
+  </div>
+  <div class="bar"></div>
+  <div class="quote-wrap">
+    <q>I watched NYC Restaurant Week get created in 1992, then spent a decade building the same idea into Brazil’s largest restaurant week. PTA Restaurant Week takes what worked in both — and points it toward local school PTAs.</q>
+    <div class="who">Emerson Silveira, founder</div>
+  </div>
+  <p class="foot">More than 20 years in hospitality across the Americas. Founding edition: Palm Beach, Miami-Dade, and Broward. November 2–15, 2026.</p>
+  <div class="dots"><i></i><i></i><i class="on"></i></div>
+</div>
+</body>
+</html>
